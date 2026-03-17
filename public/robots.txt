@@ -1,0 +1,15 @@
+# robots.txt for TLE Ltd (www.tle-eng.co.uk)
+# CURRENTLY BLOCKING ALL CRAWLERS - SITE NOT READY FOR INDEXING
+
+User-agent: *
+Disallow: /
+
+# When ready to go live, replace the above with:
+# User-agent: *
+# Allow: /
+# Disallow: /api/
+# Disallow: /admin/
+# Disallow: /*.json$
+#
+# Sitemap: https://www.tle-eng.co.uk/sitemap.xml
+# Crawl-delay: 1

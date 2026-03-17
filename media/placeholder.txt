@@ -1,0 +1,8 @@
+Place your media files here:
+- tle-logo-light.svg
+- tle-logo-dark.svg
+- hero-image.jpg
+- about-image.jpg
+- og-image.jpg
+
+Note: You'll need to replace these placeholder references with actual image files.

@@ -1,0 +1,8 @@
+/* Import fonts first */
+@import './fonts.css';
+
+/* Tailwind CSS */
+@import './tailwind.css';
+
+/* Theme customizations */
+@import './theme.css';
