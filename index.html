@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Theme initialization script - Must run before any content renders to prevent flash -->
+    <script>
+      (function() {
+        try {
+          // Check for saved theme preference or fall back to system preference
+          const savedTheme = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+          
+          // Set theme immediately before any content renders
+          document.documentElement.setAttribute('data-bs-theme', theme);
+        } catch (e) {
+          // Fallback to light theme if there's any error
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+        }
+      })();
+    </script>
+    
+    <!-- PREVENT INDEXING - SITE NOT READY FOR PUBLIC SEARCH -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    
+    <!-- Primary Meta Tags -->
+    <title>TLE Ltd - Telemetry & Logic Engineering | Critical Infrastructure Solutions</title>
+    <meta name="title" content="TLE Ltd - Telemetry & Logic Engineering | Critical Infrastructure Solutions" />
+    <meta name="description" content="TLE Ltd specializes in designing, integrating, and supporting advanced communication, automation, and pipeline management technologies for critical infrastructure across Scotland and the UK." />
+    <meta name="keywords" content="SCADA systems, industrial automation, pipeline monitoring, PLC programming, control systems, telemetry, logic engineering, critical infrastructure, Scotland engineering, HMI development, industrial networks" />
+    <meta name="author" content="Telemetry & Logic Engineering Ltd" />
+    <!-- Removed: <meta name="robots" content="index, follow" /> -->
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="GB-ABE" />
+    <meta name="geo.placename" content="Westhill, Aberdeenshire" />
+    <meta name="geo.position" content="57.1525;-2.2814" />
+    <meta name="ICBM" content="57.1525, -2.2814" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.tle-eng.co.uk/" />
+    <meta property="og:title" content="TLE Ltd - Telemetry & Logic Engineering | Critical Infrastructure Solutions" />
+    <meta property="og:description" content="TLE Ltd specializes in designing, integrating, and supporting advanced communication, automation, and pipeline management technologies for critical infrastructure across Scotland and the UK." />
+    <meta property="og:image" content="https://www.tle-eng.co.uk/og-image.jpg" />
+    <meta property="og:site_name" content="Telemetry & Logic Engineering Ltd" />
+    <meta property="og:locale" content="en_GB" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.tle-eng.co.uk/" />
+    <meta name="twitter:title" content="TLE Ltd - Telemetry & Logic Engineering | Critical Infrastructure Solutions" />
+    <meta name="twitter:description" content="TLE Ltd specializes in designing, integrating, and supporting advanced communication, automation, and pipeline management technologies for critical infrastructure across Scotland and the UK." />
+    <meta name="twitter:image" content="https://www.tle-eng.co.uk/og-image.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tle-eng.co.uk/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1a73e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d47a1" media="(prefers-color-scheme: dark)" />
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Telemetry & Logic Engineering Ltd",
+      "alternateName": "TLE Ltd",
+      "url": "https://www.tle-eng.co.uk",
+      "logo": "https://www.tle-eng.co.uk/logo.png",
+      "description": "Specialized engineering firm focused on designing, integrating, and supporting advanced communication, automation, and pipeline management technologies for critical infrastructure.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Arnhall Business Park, Discovery Drive",
+        "addressLocality": "Westhill",
+        "addressRegion": "Aberdeenshire",
+        "postalCode": "AB32 6FG",
+        "addressCountry": "GB"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+44-7405-716707",
+        "contactType": "Customer Service",
+        "email": "contact@tle-eng.co.uk",
+        "areaServed": "GB",
+        "availableLanguage": "English"
+      },
+      "sameAs": [],
+      "foundingDate": "1999",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "50"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "United Kingdom"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

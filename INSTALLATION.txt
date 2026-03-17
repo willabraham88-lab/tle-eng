@@ -1,0 +1,285 @@
+TLE LTD. WEBSITE - DEPLOYMENT INSTRUCTIONS
+===========================================
+
+This is a React + Vite application that requires a build process before deployment.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUICK START - DEPLOYMENT STEPS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. BUILD THE PROJECT
+   Run this command in the project root:
+   
+   npm run build
+   
+   This creates a production-ready build in the /dist folder.
+
+2. UPLOAD TO YOUR WEB SERVER
+   Upload ONLY the contents of the /dist folder to your web hosting.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DETAILED INSTRUCTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: BUILD THE PROJECT
+--------------------------
+
+Before deploying, you must build the project:
+
+1. Open terminal/command prompt
+2. Navigate to the project directory
+3. Run: npm run build
+
+This command:
+• Compiles your React components
+• Optimizes all JavaScript and CSS
+• Bundles all dependencies
+• Creates production files in /dist folder
+• Generates optimized assets
+
+Build output will be in: /dist
+
+STEP 2: WHAT TO UPLOAD
+----------------------
+
+After building, upload ONLY the contents of the /dist folder:
+
+✅ index.html
+✅ /assets folder (contains all CSS, JS, and images)
+✅ robots.txt
+✅ sitemap.xml
+✅ favicon.svg (and any other favicon files if added)
+
+The /dist folder structure:
+dist/
+├── index.html
+├── favicon.svg
+├── robots.txt
+├── sitemap.xml
+└── assets/
+    ├── index-[hash].js
+    ├── index-[hash].css
+    └── (other bundled assets)
+
+DO NOT UPLOAD:
+❌ /src folder (source files - not needed)
+❌ /node_modules folder (dependencies - not needed)
+❌ package.json, package-lock.json (not needed)
+❌ vite.config.js, tsconfig.json (not needed)
+❌ /public folder (already included in /dist)
+❌ INSTALLATION.txt (this file)
+
+STEP 3: UPLOAD TO WEB SERVER
+----------------------------
+
+Option A: FTP/SFTP Upload
+1. Connect to your server using FTP client (FileZilla, Cyberduck, etc.)
+2. Navigate to your website's root directory:
+   • Usually: public_html, www, or htdocs
+3. Upload ALL contents of /dist folder to the root directory
+4. Ensure index.html is in the root
+
+Option B: cPanel File Manager
+1. Log into cPanel
+2. Open File Manager
+3. Navigate to public_html (or your root directory)
+4. Upload all files from /dist folder
+5. Extract if uploaded as ZIP
+
+Option C: Deploy to Netlify (Recommended for Easy Deployment)
+1. Sign up at netlify.com (free)
+2. Drag and drop the /dist folder to Netlify
+3. Your site is live instantly with HTTPS
+4. Automatic deployments on every build
+
+Option D: Deploy to Vercel
+1. Install Vercel CLI: npm i -g vercel
+2. Run: vercel --prod
+3. Follow the prompts
+4. Your site is deployed with HTTPS
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SERVER CONFIGURATION (IMPORTANT!):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This site uses client-side routing. Your server needs to redirect all 
+requests to index.html for proper navigation.
+
+APACHE (.htaccess)
+------------------
+Create a .htaccess file in your root directory with:
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
+
+NGINX
+-----
+Add this to your nginx.conf or site config:
+
+location / {
+  try_files $uri $uri/ /index.html;
+}
+
+NETLIFY/VERCEL
+--------------
+No configuration needed - they handle it automatically!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BEFORE GOING LIVE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ CURRENTLY BLOCKED FROM SEARCH ENGINES
+
+Your site is configured to prevent indexing. Follow these steps when ready:
+
+1. ACTIVATE CONTACT FORM
+   • Submit a test form at yourdomain.com/contact
+   • Check email at contact@tle-eng.co.uk
+   • Click the FormSubmit activation link
+
+2. ENABLE SEARCH ENGINE INDEXING
+   See: /public/DEPLOYMENT_CHECKLIST.md for detailed instructions
+   • Update robots.txt
+   • Update meta tags in index.html
+
+3. TEST YOUR WEBSITE
+   • Visit: https://www.tle-eng.co.uk
+   • Test all pages: Home, About, Services, Expertise, Industries, Contact
+   • Test contact form submission
+   • Test theme toggle (light/dark mode)
+   • Test on mobile and desktop
+   • Test all navigation links
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TROUBLESHOOTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ Build fails?
+   → Make sure you have Node.js installed (v16 or higher)
+   → Run: npm install (to install dependencies)
+   → Then: npm run build
+
+❓ Blank page after deployment?
+   → Check browser console for errors (F12)
+   → Verify all /dist files were uploaded
+   → Check server configuration for client-side routing
+
+❓ Pages not loading when clicking menu items?
+   → Make sure .htaccess is configured (Apache)
+   → Or nginx config is correct (Nginx)
+   → Or use Netlify/Vercel which handle this automatically
+
+❓ Styles look broken?
+   → Clear browser cache (Ctrl+Shift+R or Cmd+Shift+R)
+   → Check that /assets folder was uploaded
+   → Verify file permissions (644 for files, 755 for folders)
+
+❓ Contact form not working?
+   → Check that you activated FormSubmit (see email)
+   → Verify contact@tle-eng.co.uk is correct
+   → Check browser console for errors
+
+❓ Images not loading?
+   → All images are bundled in the build
+   → Clear cache and hard reload
+   → Check /assets folder was uploaded
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FEATURES INCLUDED:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Fully responsive design (mobile, tablet, desktop)
+✅ Dark/Light theme toggle (follows device preference)
+✅ Client-side routing with custom navigation
+✅ Glassmorphism effects (Apple-style liquid glass)
+✅ SEO optimized with meta tags and structured data
+✅ Contact form integrated with FormSubmit.co
+✅ All 8 pages: Home, About, Services, Expertise, Industries, Contact, 
+   Privacy Policy, Cookie Policy
+✅ Production-ready build with optimized assets
+✅ Blocked from indexing (until you enable it)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DEVELOPMENT (FOR FUTURE UPDATES):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+To make changes to the website:
+
+1. INSTALL DEPENDENCIES
+   npm install
+
+2. START DEVELOPMENT SERVER
+   npm run dev
+   (Opens at http://localhost:5173)
+
+3. MAKE YOUR CHANGES
+   Edit files in /src folder
+
+4. BUILD FOR PRODUCTION
+   npm run build
+
+5. DEPLOY THE NEW BUILD
+   Upload /dist folder contents
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROJECT STRUCTURE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/
+├── /src                    Source files (React components)
+│   ├── /app               
+│   │   ├── /components    Reusable components
+│   │   ├── /pages         Page components
+│   │   └── App.tsx        Main app component
+│   └── /styles            CSS styles
+├── /public                Static assets (copied to /dist)
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
+├── /dist                  Production build (upload this!)
+├── package.json           Dependencies and scripts
+├── vite.config.js         Build configuration
+└── INSTALLATION.txt       This file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED HOSTING PROVIDERS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Easy (Automatic):
+• Netlify - Drop /dist folder, instant deploy, free HTTPS
+• Vercel - One command deploy, automatic HTTPS
+• Cloudflare Pages - Fast, global CDN, free
+
+Traditional (Manual FTP):
+• SiteGround - Excellent support, easy cPanel
+• Bluehost - Popular, reliable
+• HostGator - Good for beginners
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Deployment Checklist: /public/DEPLOYMENT_CHECKLIST.md
+📧 Contact: contact@tle-eng.co.uk
+🌐 Website: https://www.tle-eng.co.uk
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+© 2026 Telemetry & Logic Engineering Ltd.
